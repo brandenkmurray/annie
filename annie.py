@@ -25,25 +25,31 @@ terms = ['Annie are you okay',
 
  
 #list of specific strings we want to check for in Tweets
-t = ['Annie, are you okay?',
-    'Annie are you okay?',
-    'Are you ok Annie?',
-    'Annie, are you okay??',
-    'Are you okay Annie?',
-    'Annie, are you OK?',
-    'Annie are you OK?',
-    'Are you OK Annie?',
-    'Is Annie okay?',
-    'Are you ok, Annie?',
-    'Annie are you okay',
-    'Annie are you ok']
+t = ['annie, are you okay?',
+    'annie are you okay?',
+    'are you ok annie?',
+    'annie, are you okay??',
+    'are you okay annie?',
+    'annie, are you ok?',
+    'annie are you ok?',
+    'are you ok annie?',
+    'as Annie okay?',
+    'are you ok, annie?',
+    'annie are you okay',
+    'annie are you ok']
 
 #List of responses to be chosen at random
 response = ['HELP MEEEEEEE',
             "SAVE ME I'M DYING",
             "No.",
             "DO I LOOK OKAY?",
-            "I'M IN THE BEDROOM, HELP!"]
+            "I'M HIDING IN THE BEDROOM, HELP!",
+            "No, he struck me! Owwwwww",
+            "THERE IS BLOOD EVERYWHERE!!!",
+            "My head hurts.",
+            "CALL AN AMBULANCE!!",
+            "I'm doomed.",
+            "I am so scared right now."]
 
 #File that stores list of tweets replied to.
 #This is so that it doesn't reply to the same tweet multiple times
@@ -51,11 +57,11 @@ filename=open('/home/branden/Documents/annieFiles/tweetlist.txt','rw+')
 twtList = filename.readlines()
 
 for trms in terms:
-    twt = api.search(q=trms, count=3)  
+    twt = api.search(q=trms, count=10)  
     for s in twt:
-        if (str(s.id) + '\n') not in twtList and s.retweeted==False:
+        if (str(s.id) + '\n') not in twtList and s.retweet_count==0:
             for i in t:
-                if i in s.text:
+                if i in s.text.lower():
                     if (str(s.id) + '\n') not in twtList:
                         twtList.append(str(s.id)+'\n')
                         filename.writelines(str(s.id)+'\n')
