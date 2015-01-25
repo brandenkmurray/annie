@@ -33,7 +33,7 @@ t = ['annie, are you okay?',
     'annie, are you ok?',
     'annie are you ok?',
     'are you ok annie?',
-    'as Annie okay?',
+    'is annie okay?',
     'are you ok, annie?',
     'annie are you okay',
     'annie are you ok']
