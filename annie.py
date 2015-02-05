@@ -18,11 +18,16 @@ ACCESS_TOKEN_SECRET = keys['access_token_secret']
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
- 
+
+#Terms that Twitter will search for. Case and question marks are irrelevant (I think) 
 terms = ['Annie are you okay',
-         'Annie are you OK']
-
-
+         'Annie are you OK',
+         'Annie are u okay',
+         'Annie are u ok',
+         'Annie r you okay',
+         'Annie r you ok',
+         'Annie r u okay',
+         'Annie r u ok']
  
 #list of specific strings we want to check for in Tweets
 t = ['annie, are you okay?',
@@ -36,7 +41,43 @@ t = ['annie, are you okay?',
     'is annie okay?',
     'are you ok, annie?',
     'annie are you okay',
-    'annie are you ok']
+    'annie are you ok', #
+    'annie, are u okay?',
+    'annie are u okay?',
+    'are u ok annie?',
+    'annie, are u okay??',
+    'are u okay annie?',
+    'annie, are u ok?',
+    'annie are u ok?',
+    'are u ok annie?',
+    'is annie okay?',
+    'are u ok, annie?',
+    'annie are u okay',
+    'annie are u ok',#
+    'annie, r you okay?',
+    'annie r you okay?',
+    'r you ok annie?',
+    'annie, r you okay??',
+    'r you okay annie?',
+    'annie, r you ok?',
+    'annie r you ok?',
+    'r you ok annie?',
+    'is annie okay?',
+    'r you ok, annie?',
+    'annie r you okay',
+    'annie r you ok',#
+    'annie, r u okay?',
+    'annie r u okay?',
+    'r u ok annie?',
+    'annie, r u okay??',
+    'r u okay annie?',
+    'annie, r u ok?',
+    'annie r u ok?',
+    'r u ok annie?',
+    'is annie okay?',
+    'r u ok, annie?',
+    'annie r u okay',
+    'annie r u ok']
 
 #List of responses to be chosen at random
 response = ['HELP MEEEEEEE',
